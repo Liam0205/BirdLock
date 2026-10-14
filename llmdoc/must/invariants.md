@@ -24,7 +24,7 @@
 
 照片缓存与分析缓存减少重复解码和推理，但不能假定所有模型、阈值、目标选择、解码尺寸变化都会自动反映在缓存键中。修改分析算法或模型契约时，检查缓存版本和失效策略；对比新旧效果时，明确使用了哪种重新分析及代理重建方式。
 
-当前 Swift 导入身份依据照片路径、文件大小和修改时间生成；“重新分析”不等于清空已有缩略图。具体平台策略分别查看 `SourceFrame.swift`、`ProxyCache.swift`、`Analyzer.swift` 和 Python `frames.py`、`analysis.py`，不要跨平台推定格式可互读。
+当前 Swift 分析身份在 `Analyzer.swift` 中依据照片路径、文件大小和修改时间生成；“重新分析”不等于清空已有缩略图。具体平台策略分别查看 `SourceFrame.swift`、`ProxyCache.swift`、`Analyzer.swift` 和 Python `frames.py`、`analysis.py`，不要跨平台推定格式可互读。
 
 ## 保持模型语义一致，不依赖 README 的泛称
 

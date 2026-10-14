@@ -13,7 +13,7 @@
 | 目标鸟选择与连续追踪 | `Analysis/TargetTracker.swift` | `core/analysis.py` |
 | 头部模板与遮眼推算 | `Analysis/HeadModel.swift` | `core/head.py` |
 | 相位相关及置信度 | `Analysis/PhaseCorrelation.swift` | `core/phasecorr.py` |
-| 观测融合与轨迹构建 | `Analysis/TrajectorySolver.swift`、`Analysis/TrackBuilder.swift` | `core/solver.py` |
+| 观测融合与轨迹构建 | `Analysis/TrajectorySolver.swift`、`Analysis/TrackBuilder.swift` | `core/solver.py`、`core/analysis.py` |
 | 分析数据表示 | `Analysis/AnalysisModel.swift` | `core/analysis.py`、`core/head.py`、`core/solver.py` |
 
 表中 Swift 未写完整前缀的路径位于 `Sources/BirdLockCore/`；Python 未写完整前缀的路径位于 `windows/birdlock/`。

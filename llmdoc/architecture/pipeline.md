@@ -35,7 +35,7 @@ BirdLock 把一组飞鸟连拍照片变成鸟眼尽量稳定、翅膀继续运�
 
 导入读取图像尺寸、方向和 EXIF 拍摄时间，按拍摄时间与自然文件名组织照片，估计连拍速度并分组。缺失时间、同时间戳照片、混合格式和方向旋转都值得单独验证；不能把 EXIF 完整性当输入保证。
 
-鸟类检测不是最终锁定点。跟踪器利用鸟框重叠、预测位置、大小和运动连续性选择目标，初始选择可受用户选鸟提示影响。当前 Swift 跟踪是几何贪心策略，不是带身份嵌入的全局多目标追踪；鸟交叉、遮挡和长时间漏检仍可能跟错。手动选目标后需要重新分析，而不是只挪动输出取景框。
+鸟类检测不是最终锁定点。跟踪器利用预测中心、中心距离、面积变化和检测置信度选择目标，初始选择可受用户选鸟提示影响。当前 Swift 跟踪是几何贪心策略，不是带身份嵌入的全局多目标追踪；鸟交叉、遮挡和长时间漏检仍可能跟错。手动选目标后需要重新分析，而不是只挪动输出取景框。
 
 权威入口：Swift `IO/SourceFrame.swift`、`Analysis/TargetTracker.swift`，Python `core/frames.py`、`core/analysis.py`。
 
@@ -72,7 +72,7 @@ p_(i+1) - p_i   尽量接近 d_i      （相对位移约束）
 
 最终轨迹除了位置，还包含构图所需的头部大小、角度、方向、可用性和质量信息。缺失值补齐与平滑有各自职责，不意味着没有观测的帧获得了真实检测。
 
-权威入口：`Analysis/TrajectorySolver.swift`、`Analysis/TrackBuilder.swift`、`windows/birdlock/core/solver.py`。
+权威入口：`Analysis/TrajectorySolver.swift`、`Analysis/TrackBuilder.swift`、`windows/birdlock/core/solver.py` 及 `core/analysis.py`。
 
 ## 人工修正与重新分析
 
